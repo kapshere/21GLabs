@@ -33,6 +33,12 @@ export default function ContactPage() {
               Products
             </Link>
             <Link
+              href="/experiments"
+              className="text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900"
+            >
+              Experiments
+            </Link>
+            <Link
               href="/blog"
               className="text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900"
             >
@@ -107,16 +113,16 @@ export default function ContactPage() {
                     <Mail className="h-5 w-5 text-brand-orange" />
                     <div>
                       <h3 className="font-medium">Email</h3>
-                      <p className="text-sm text-neutral-600">info@21glabs.com</p>
-                      <p className="text-sm text-neutral-600">support@21glabs.com</p>
+                      <p className="text-sm text-neutral-600">info@21glabs.in</p>
+                      <p className="text-sm text-neutral-600">support@21glabs.in</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
                     <Phone className="h-5 w-5 text-brand-green" />
                     <div>
                       <h3 className="font-medium">Phone</h3>
-                      <p className="text-sm text-neutral-600">+91 80 1234 5678</p>
-                      <p className="text-sm text-neutral-600">+91 80 8765 4321</p>
+                      <p className="text-sm text-neutral-600">+91 99 9999 9999</p>
+                      <p className="text-sm text-neutral-600">+91 77 7777 7777</p>
                     </div>
                   </div>
                 </div>

@@ -1,5 +1,4 @@
 import Link from "next/link"
-import Image from "next/image"
 import { ArrowLeft, ExternalLink, Music, Twitter } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -26,9 +25,15 @@ export default function PhilosophyProjectPage() {
             </Link>
             <Link
               href="/products"
-              className="text-sm font-medium text-neutral-900 transition-colors hover:text-neutral-900"
+              className="text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900"
             >
               Products
+            </Link>
+            <Link
+              href="/experiments"
+              className="text-sm font-medium text-neutral-900 transition-colors hover:text-neutral-900"
+            >
+              Experiments
             </Link>
             <Link
               href="/blog"
@@ -70,9 +75,9 @@ export default function PhilosophyProjectPage() {
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white"></div>
           </div>
           <div className="container relative px-4 py-16 md:py-24 md:px-6">
-            <Link href="/products" className="inline-flex items-center text-sm font-medium text-brand-blue mb-6">
+            <Link href="/experiments" className="inline-flex items-center text-sm font-medium text-brand-blue mb-6">
               <ArrowLeft className="mr-1 h-4 w-4" />
-              Back to Products
+              Back to Experiments
             </Link>
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="space-y-4">
@@ -140,15 +145,11 @@ export default function PhilosophyProjectPage() {
                 <div className="rounded-lg border overflow-hidden hover:shadow-lg transition-all duration-300">
                   <div className="grid md:grid-cols-3 gap-6">
                     <div className="md:col-span-1 bg-brand-blue-light/20 p-6 flex items-center justify-center">
-                      <div className="w-full max-w-[200px] aspect-[2/3] rounded-md shadow-md flex items-center justify-center overflow-hidden">
-                        <Image
-                          src="/images/siesta-of-seven.jpg"
-                          alt="Siesta of Seven book cover"
-                          width={200}
-                          height={300}
-                          className="object-cover"
-                          unoptimized
-                        />
+                      <div className="w-full max-w-[200px] aspect-[2/3] rounded-md shadow-md flex items-center justify-center overflow-hidden bg-gradient-to-br from-brand-blue-light to-brand-blue/20">
+                        <div className="text-center p-4">
+                          <div className="text-2xl font-bold text-brand-blue mb-2">Siesta</div>
+                          <div className="text-lg text-brand-blue">of Seven</div>
+                        </div>
                       </div>
                     </div>
                     <div className="md:col-span-2 p-6">
@@ -226,18 +227,6 @@ export default function PhilosophyProjectPage() {
 
                 {/* Twitter Timeline Embed - Updated to use a more reliable approach */}
                 <div className="rounded-lg border overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
-                  <a
-                    className="twitter-timeline"
-                    data-height="500"
-                    data-theme="light"
-                    href="https://twitter.com/PhilosophyofUg?ref_src=twsrc%5Etfw"
-                  >
-                    Tweets by PhilosophyofUg
-                  </a>
-                  {/* Twitter widget script */}
-                  <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
-
-                  {/* Fallback content in case the Twitter widget doesn't load */}
                   <div className="p-6 text-center">
                     <p className="text-neutral-600 mb-4">Follow our latest thoughts and discussions on Twitter.</p>
                     <a

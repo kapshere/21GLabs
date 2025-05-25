@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 
-export default function ProductsPage() {
+export default function ExperimentsPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <header id="top" className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-sm">
@@ -26,13 +26,13 @@ export default function ProductsPage() {
             </Link>
             <Link
               href="/products"
-              className="text-sm font-medium text-neutral-900 transition-colors hover:text-neutral-900"
+              className="text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900"
             >
               Products
             </Link>
             <Link
               href="/experiments"
-              className="text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900"
+              className="text-sm font-medium text-neutral-900 transition-colors hover:text-neutral-900"
             >
               Experiments
             </Link>
@@ -70,69 +70,58 @@ export default function ProductsPage() {
           </Button>
         </div>
       </header>
-
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                  Our Products
+                  Our Experiments
                 </h1>
                 <p className="mx-auto max-w-[700px] text-neutral-600 md:text-xl">
-                  Innovative solutions for businesses and consumers.
+                  Exploring new ideas and concepts in technology and philosophy.
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl gap-8 py-12 md:grid-cols-2 lg:grid-cols-3">
+            <div className="mx-auto grid max-w-5xl gap-8 py-12 md:grid-cols-2">
               {[
                 {
-                  title: "Connect",
+                  title: "The Philosophy Project",
                   description:
-                    "Real People. Real Connections. Connect with others through authentic commitments, celebrations, and memories. No fake profiles, just real interaction. You're not real if you can't commit.",
-                  type: "B2B/B2C",
-                  image: "/images/connect.jpg",
+                    "Publishing ancient Bharatiya philosophies in modern formats. Access timeless wisdom through podcasts, videos, and books designed for all generations to easily understand and appreciate.",
+                  image: "/images/philosophy.jpg",
                   color: "bg-brand-blue-light text-brand-blue",
-                  link: "https://connect.21glabs.in",
+                  link: "/products/philosophy-project#top",
                   shadowColor: "shadow-brand-blue/20",
                 },
                 {
-                  title: "Anuvādasetu",
+                  title: "ToolSphere",
                   description:
-                    "Translate your English books to native Indian languages and expand your reach. Break language barriers and connect with a wider audience across India's diverse linguistic landscape.",
-                  type: "B2B/B2C",
-                  image: "/images/anuvadasetu.jpg",
+                    "A comprehensive collection of web-based tools for developers, designers, and content creators. All the utilities you need in one convenient location.",
+                  image: "/images/toolsphere.jpg",
                   color: "bg-brand-orange-light text-brand-orange",
-                  link: "https://anuvadasetu.21glabs.in",
+                  link: "/products/toolsphere#top",
                   shadowColor: "shadow-brand-orange/20",
                 },
-                {
-                  title: "Blockshack",
-                  description:
-                    "A new age LinkedIn where every individual is a business entrepreneur and runs their own shop or shack for earning a living. Replacing LinkedIn, Fiverr, and Upwork for gig workers.",
-                  type: "B2B/B2C",
-                  image: "/images/blockshack.jpg",
-                  color: "bg-brand-green-light text-brand-green",
-                  link: "https://blockshack.21glabs.in",
-                  shadowColor: "shadow-brand-green/20",
-                },
-              ].map((product, i) => (
+              ].map((experiment, i) => (
                 <div
                   key={i}
-                  className={`group relative overflow-hidden rounded-lg border bg-white shadow-sm transition-all hover:shadow-lg ${product.shadowColor} duration-300`}
+                  className={`group relative overflow-hidden rounded-lg border bg-white shadow-sm transition-all hover:shadow-lg ${experiment.shadowColor} duration-300`}
                 >
                   <div className="aspect-video overflow-hidden">
                     <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                      {product.image.includes("/images/") ? (
+                      {experiment.image.includes("/images/") ? (
                         <div className="w-full h-full bg-gray-100 flex items-center justify-center">
-                          <div className={`p-4 rounded-lg ${product.color.split(" ")[0]}`}>
-                            <span className={`text-2xl font-bold ${product.color.split(" ")[1]}`}>{product.title}</span>
+                          <div className={`p-4 rounded-lg ${experiment.color.split(" ")[0]}`}>
+                            <span className={`text-2xl font-bold ${experiment.color.split(" ")[1]}`}>
+                              {experiment.title}
+                            </span>
                           </div>
                         </div>
                       ) : (
                         <Image
-                          src={product.image || "/placeholder.svg"}
-                          alt={product.title}
+                          src={experiment.image || "/placeholder.svg"}
+                          alt={experiment.title}
                           width={600}
                           height={400}
                           className="object-cover transition-transform group-hover:scale-105"
@@ -142,14 +131,11 @@ export default function ProductsPage() {
                     </div>
                   </div>
                   <div className="p-6">
-                    <div className={`inline-block rounded-full px-3 py-1 text-xs ${product.color}`}>{product.type}</div>
-                    <h3 className="mt-4 text-xl font-bold">{product.title}</h3>
-                    <p className="mt-2 text-sm text-neutral-600">{product.description}</p>
+                    <h3 className="mt-4 text-xl font-bold">{experiment.title}</h3>
+                    <p className="mt-2 text-sm text-neutral-600">{experiment.description}</p>
                     <Link
-                      href={product.link}
-                      className={`mt-4 inline-flex items-center text-sm font-medium ${product.color.split(" ")[1]} hover:underline`}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href={experiment.link}
+                      className={`mt-4 inline-flex items-center text-sm font-medium ${experiment.color.split(" ")[1]} hover:underline`}
                     >
                       Learn more
                       <ArrowRight className="ml-1 h-4 w-4" />
@@ -157,31 +143,6 @@ export default function ProductsPage() {
                   </div>
                 </div>
               ))}
-            </div>
-            <div className="mt-12 text-center">
-              <Link href="/experiments">
-                <Button className="bg-brand-blue text-white hover:bg-brand-blue/90 hover:shadow-lg hover:shadow-brand-blue/20 transition-all duration-300">
-                  View Our Experiments
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </section>
-        <section className="w-full bg-brand-blue-light/30 py-12 md:py-24">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Custom Solutions</h2>
-                <p className="mx-auto max-w-[700px] text-neutral-600 md:text-xl">
-                  Need something tailored to your specific requirements? We offer custom development services.
-                </p>
-              </div>
-              <div className="mx-auto w-full max-w-sm space-y-2">
-                <Button className="w-full bg-brand-blue text-white hover:bg-brand-blue/90 hover:shadow-lg hover:shadow-brand-blue/20 transition-all duration-300">
-                  Request a Consultation
-                </Button>
-              </div>
             </div>
           </div>
         </section>

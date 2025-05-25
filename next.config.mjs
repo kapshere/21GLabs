@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // For GitHub Pages, we need basePath, but for Vercel we should remove it
-  // basePath: process.env.NODE_ENV === "production" ? "/21GLabs" : "",
-  
   images: { 
     unoptimized: true 
   },
@@ -13,6 +10,9 @@ const nextConfig = {
   },
   typescript: {
     ignoreBuildErrors: true,
+  },
+  experimental: {
+    optimizePackageImports: ['lucide-react']
   }
 }
 

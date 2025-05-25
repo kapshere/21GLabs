@@ -30,6 +30,12 @@ export default function Home() {
               Products
             </Link>
             <Link
+              href="/experiments"
+              className="text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900"
+            >
+              Experiments
+            </Link>
+            <Link
               href="/blog"
               className="text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900"
             >
@@ -85,12 +91,14 @@ export default function Home() {
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
-                  <Button
-                    variant="outline"
-                    className="inline-flex h-10 items-center justify-center rounded-md border border-neutral-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-neutral-100 hover:text-neutral-900 hover:shadow-md focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50"
-                  >
-                    Learn More
-                  </Button>
+                  <Link href="/experiments">
+                    <Button
+                      variant="outline"
+                      className="inline-flex h-10 items-center justify-center rounded-md border border-neutral-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-neutral-100 hover:text-neutral-900 hover:shadow-md focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50"
+                    >
+                      View Experiments
+                    </Button>
+                  </Link>
                 </div>
               </div>
               <div className="flex items-center justify-center">
@@ -123,7 +131,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl gap-8 pt-12 md:grid-cols-2 lg:grid-cols-5">
+            <div className="mx-auto grid max-w-5xl gap-8 pt-12 md:grid-cols-2 lg:grid-cols-3">
               <div className="group relative overflow-hidden rounded-lg border bg-white shadow-sm transition-all hover:shadow-lg hover:shadow-brand-blue/20 duration-300">
                 <div className="p-6">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-blue-light">
@@ -151,8 +159,10 @@ export default function Home() {
                     memories. No fake profiles, just real interaction.
                   </p>
                   <Link
-                    href="/products/connect#top"
+                    href="https://connect.21glabs.in"
                     className="mt-4 inline-flex items-center text-sm font-medium text-brand-blue hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     Learn more
                     <ChevronRight className="ml-1 h-4 w-4" />
@@ -183,8 +193,10 @@ export default function Home() {
                     barriers and connect with a wider audience.
                   </p>
                   <Link
-                    href="/products/anuvadasetu#top"
+                    href="https://anuvadasetu.21glabs.in"
                     className="mt-4 inline-flex items-center text-sm font-medium text-brand-orange hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     Learn more
                     <ChevronRight className="ml-1 h-4 w-4" />
@@ -216,79 +228,24 @@ export default function Home() {
                     shack. Replacing LinkedIn, Fiverr, and Upwork for gig workers.
                   </p>
                   <Link
-                    href="/products/blockshack#top"
+                    href="https://blockshack.21glabs.in"
                     className="mt-4 inline-flex items-center text-sm font-medium text-brand-green hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     Learn more
                     <ChevronRight className="ml-1 h-4 w-4" />
                   </Link>
                 </div>
               </div>
-              <div className="group relative overflow-hidden rounded-lg border bg-white shadow-sm transition-all hover:shadow-lg hover:shadow-brand-blue/20 duration-300">
-                <div className="p-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-blue-light">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-6 w-6 text-brand-blue"
-                    >
-                      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-                      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-                    </svg>
-                  </div>
-                  <h3 className="mt-4 text-xl font-bold">The Philosophy Project</h3>
-                  <p className="mt-2 text-sm text-neutral-600">
-                    Publishing ancient Bharatiya philosophies in modern formats. Access timeless wisdom through
-                    podcasts, videos, and books designed for all generations.
-                  </p>
-                  <Link
-                    href="/products/philosophy-project#top"
-                    className="mt-4 inline-flex items-center text-sm font-medium text-brand-blue hover:underline"
-                  >
-                    Learn more
-                    <ChevronRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </div>
-              </div>
-              <div className="group relative overflow-hidden rounded-lg border bg-white shadow-sm transition-all hover:shadow-lg hover:shadow-brand-orange/20 duration-300">
-                <div className="p-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-orange-light">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-6 w-6 text-brand-orange"
-                    >
-                      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-                    </svg>
-                  </div>
-                  <h3 className="mt-4 text-xl font-bold">ToolSphere</h3>
-                  <p className="mt-2 text-sm text-neutral-600">
-                    A comprehensive collection of web-based tools for developers, designers, and content creators. All
-                    the utilities you need in one convenient location.
-                  </p>
-                  <Link
-                    href="/products/toolsphere#top"
-                    className="mt-4 inline-flex items-center text-sm font-medium text-brand-orange hover:underline"
-                  >
-                    Learn more
-                    <ChevronRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </div>
-              </div>
+            </div>
+            <div className="mt-12 text-center">
+              <Link href="/experiments">
+                <Button className="bg-brand-blue text-white hover:bg-brand-blue/90 hover:shadow-lg hover:shadow-brand-blue/20 transition-all duration-300">
+                  View Our Experiments
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
             </div>
           </div>
         </section>

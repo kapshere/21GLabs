@@ -3,91 +3,46 @@ import { ArrowLeft, Check } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 
-// Tool data based on the GitHub repository
+// Tool data based on the actual pages in the codebase
 const tools = [
   {
     name: "Text Case Converter",
-    description: "Convert text between different cases: lowercase, UPPERCASE, Title Case, and more.",
+    description:
+      "Convert text between different cases: lowercase, UPPERCASE, Title Case, camelCase, snake_case, kebab-case, and more.",
     category: "Text",
     icon: "Type",
     slug: "text-case-converter",
   },
   {
     name: "JSON Formatter",
-    description: "Format and validate JSON data with syntax highlighting and error detection.",
+    description:
+      "Format and validate JSON data with syntax highlighting and error detection. Supports both formatting and minification.",
     category: "Development",
     icon: "Braces",
     slug: "json-formatter",
   },
   {
     name: "Color Converter",
-    description: "Convert colors between different formats: HEX, RGB, HSL, and more.",
+    description: "Convert colors between different formats: HEX, RGB, HSL with real-time preview and validation.",
     category: "Design",
     icon: "Palette",
     slug: "color-converter",
   },
   {
     name: "Base64 Encoder/Decoder",
-    description: "Encode text to Base64 or decode Base64 to text with support for various character sets.",
+    description:
+      "Encode text to Base64 or decode Base64 to text with support for various character sets and error handling.",
     category: "Development",
     icon: "Code",
     slug: "base64-encoder-decoder",
   },
   {
     name: "URL Encoder/Decoder",
-    description: "Encode and decode URLs to ensure they are properly formatted for web use.",
+    description:
+      "Encode and decode URLs to ensure they are properly formatted for web use with comprehensive validation.",
     category: "Web",
     icon: "Link",
     slug: "url-encoder-decoder",
-  },
-  {
-    name: "Markdown Preview",
-    description: "Write and preview Markdown with real-time rendering and syntax highlighting.",
-    category: "Text",
-    icon: "FileText",
-    slug: "markdown-preview",
-  },
-  {
-    name: "Image Compressor",
-    description: "Compress images to reduce file size while maintaining quality.",
-    category: "Media",
-    icon: "Image",
-    slug: "image-compressor",
-  },
-  {
-    name: "Password Generator",
-    description: "Generate secure, random passwords with customizable options.",
-    category: "Security",
-    icon: "Key",
-    slug: "password-generator",
-  },
-  {
-    name: "HTML Entity Encoder/Decoder",
-    description: "Convert special characters to HTML entities and vice versa.",
-    category: "Web",
-    icon: "Code2",
-    slug: "html-entity-encoder-decoder",
-  },
-  {
-    name: "CSV to JSON Converter",
-    description: "Convert CSV data to JSON format with customizable options.",
-    category: "Data",
-    icon: "Table",
-    slug: "csv-to-json-converter",
-  },
-  {
-    name: "Regex Tester",
-    description: "Test regular expressions with real-time matching and explanation.",
-    category: "Development",
-    icon: "Search",
-    slug: "regex-tester",
-  },
-  {
-    name: "Lorem Ipsum Generator",
-    description: "Generate placeholder text for design mockups and layouts.",
-    category: "Design",
-    icon: "Type",
-    slug: "lorem-ipsum-generator",
   },
 ]
 
@@ -125,9 +80,15 @@ export default function ToolSphereProductPage() {
             </Link>
             <Link
               href="/products"
-              className="text-sm font-medium text-neutral-900 transition-colors hover:text-neutral-900"
+              className="text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900"
             >
               Products
+            </Link>
+            <Link
+              href="/experiments"
+              className="text-sm font-medium text-neutral-900 transition-colors hover:text-neutral-900"
+            >
+              Experiments
             </Link>
             <Link
               href="/blog"
@@ -169,9 +130,9 @@ export default function ToolSphereProductPage() {
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white"></div>
           </div>
           <div className="container relative px-4 py-16 md:py-24 md:px-6">
-            <Link href="/products" className="inline-flex items-center text-sm font-medium text-brand-orange mb-6">
+            <Link href="/experiments" className="inline-flex items-center text-sm font-medium text-brand-orange mb-6">
               <ArrowLeft className="mr-1 h-4 w-4" />
-              Back to Products
+              Back to Experiments
             </Link>
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="space-y-4">
