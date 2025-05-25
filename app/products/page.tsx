@@ -31,12 +31,6 @@ export default function ProductsPage() {
               Products
             </Link>
             <Link
-              href="/experiments"
-              className="text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900"
-            >
-              Experiments
-            </Link>
-            <Link
               href="/blog"
               className="text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900"
             >
@@ -70,7 +64,6 @@ export default function ProductsPage() {
           </Button>
         </div>
       </header>
-
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
@@ -93,7 +86,7 @@ export default function ProductsPage() {
                   type: "B2B/B2C",
                   image: "/images/connect.jpg",
                   color: "bg-brand-blue-light text-brand-blue",
-                  link: "https://connect.21glabs.in",
+                  link: "/products/connect#top",
                   shadowColor: "shadow-brand-blue/20",
                 },
                 {
@@ -103,7 +96,7 @@ export default function ProductsPage() {
                   type: "B2B/B2C",
                   image: "/images/anuvadasetu.jpg",
                   color: "bg-brand-orange-light text-brand-orange",
-                  link: "https://anuvadasetu.21glabs.in",
+                  link: "/products/anuvadasetu#top",
                   shadowColor: "shadow-brand-orange/20",
                 },
                 {
@@ -113,8 +106,28 @@ export default function ProductsPage() {
                   type: "B2B/B2C",
                   image: "/images/blockshack.jpg",
                   color: "bg-brand-green-light text-brand-green",
-                  link: "https://blockshack.21glabs.in",
+                  link: "/products/blockshack#top",
                   shadowColor: "shadow-brand-green/20",
+                },
+                {
+                  title: "The Philosophy Project",
+                  description:
+                    "Publishing ancient Bharatiya philosophies in modern formats. Access timeless wisdom through podcasts, videos, and books designed for all generations to easily understand and appreciate.",
+                  type: "B2C",
+                  image: "/images/philosophy.jpg",
+                  color: "bg-brand-blue-light text-brand-blue",
+                  link: "/products/philosophy-project#top",
+                  shadowColor: "shadow-brand-blue/20",
+                },
+                {
+                  title: "ToolSphere",
+                  description:
+                    "A comprehensive collection of web-based tools for developers, designers, and content creators. All the utilities you need in one convenient location.",
+                  type: "B2B/B2C",
+                  image: "/images/toolsphere.jpg",
+                  color: "bg-brand-orange-light text-brand-orange",
+                  link: "/products/toolsphere#top",
+                  shadowColor: "shadow-brand-orange/20",
                 },
               ].map((product, i) => (
                 <div
@@ -148,8 +161,6 @@ export default function ProductsPage() {
                     <Link
                       href={product.link}
                       className={`mt-4 inline-flex items-center text-sm font-medium ${product.color.split(" ")[1]} hover:underline`}
-                      target="_blank"
-                      rel="noopener noreferrer"
                     >
                       Learn more
                       <ArrowRight className="ml-1 h-4 w-4" />
@@ -157,14 +168,6 @@ export default function ProductsPage() {
                   </div>
                 </div>
               ))}
-            </div>
-            <div className="mt-12 text-center">
-              <Link href="/experiments">
-                <Button className="bg-brand-blue text-white hover:bg-brand-blue/90 hover:shadow-lg hover:shadow-brand-blue/20 transition-all duration-300">
-                  View Our Experiments
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
             </div>
           </div>
         </section>

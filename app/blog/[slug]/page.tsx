@@ -56,12 +56,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               Products
             </Link>
             <Link
-              href="/experiments"
-              className="text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900"
-            >
-              Experiments
-            </Link>
-            <Link
               href="/blog"
               className="text-sm font-medium text-neutral-900 transition-colors hover:text-neutral-900"
             >

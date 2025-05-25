@@ -29,12 +29,6 @@ export default function AboutPage() {
               Products
             </Link>
             <Link
-              href="/experiments"
-              className="text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900"
-            >
-              Experiments
-            </Link>
-            <Link
               href="/blog"
               className="text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900"
             >
