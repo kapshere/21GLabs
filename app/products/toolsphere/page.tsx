@@ -3,91 +3,133 @@ import { ArrowLeft, Check } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 
-// Tool data based on the GitHub repository
+// Tool data based on the actual components in the codebase
 const tools = [
-  {
-    name: "Text Case Converter",
-    description: "Convert text between different cases: lowercase, UPPERCASE, Title Case, and more.",
-    category: "Text",
-    icon: "Type",
-    slug: "text-case-converter",
-  },
-  {
-    name: "JSON Formatter",
-    description: "Format and validate JSON data with syntax highlighting and error detection.",
-    category: "Development",
-    icon: "Braces",
-    slug: "json-formatter",
-  },
-  {
-    name: "Color Converter",
-    description: "Convert colors between different formats: HEX, RGB, HSL, and more.",
-    category: "Design",
-    icon: "Palette",
-    slug: "color-converter",
-  },
   {
     name: "Base64 Encoder/Decoder",
     description: "Encode text to Base64 or decode Base64 to text with support for various character sets.",
     category: "Development",
-    icon: "Code",
-    slug: "base64-encoder-decoder",
+    slug: "base64-encoder",
   },
   {
-    name: "URL Encoder/Decoder",
-    description: "Encode and decode URLs to ensure they are properly formatted for web use.",
-    category: "Web",
-    icon: "Link",
-    slug: "url-encoder-decoder",
+    name: "Calculator",
+    description: "A simple calculator for basic arithmetic operations.",
+    category: "Utility",
+    slug: "calculator",
   },
   {
-    name: "Markdown Preview",
-    description: "Write and preview Markdown with real-time rendering and syntax highlighting.",
+    name: "Character Counter",
+    description: "Count characters, words, and lines in your text.",
     category: "Text",
-    icon: "FileText",
-    slug: "markdown-preview",
+    slug: "character-counter",
+  },
+  {
+    name: "Coin Flipper",
+    description: "Flip a virtual coin for random decisions.",
+    category: "Games",
+    slug: "coin-flipper",
+  },
+  {
+    name: "Color Picker",
+    description: "Pick and convert colors between different formats.",
+    category: "Design",
+    slug: "color-picker",
+  },
+  {
+    name: "CSV Viewer",
+    description: "View and analyze CSV files in a table format.",
+    category: "Data",
+    slug: "csv-viewer",
+  },
+  {
+    name: "Date Calculator",
+    description: "Calculate differences between dates and add/subtract time.",
+    category: "Utility",
+    slug: "date-calculator",
+  },
+  {
+    name: "Dice Roller",
+    description: "Roll virtual dice with customizable sides.",
+    category: "Games",
+    slug: "dice-roller",
+  },
+  {
+    name: "Hash Generator",
+    description: "Generate MD5, SHA-1, SHA-256 hashes for text.",
+    category: "Security",
+    slug: "hash-generator",
   },
   {
     name: "Image Compressor",
     description: "Compress images to reduce file size while maintaining quality.",
     category: "Media",
-    icon: "Image",
     slug: "image-compressor",
+  },
+  {
+    name: "JSON Formatter",
+    description: "Format and validate JSON data with syntax highlighting.",
+    category: "Development",
+    slug: "json-formatter",
+  },
+  {
+    name: "Markdown Editor",
+    description: "Write and preview Markdown with real-time rendering.",
+    category: "Text",
+    slug: "markdown-editor",
+  },
+  {
+    name: "Number Guessing Game",
+    description: "A fun number guessing game to test your luck.",
+    category: "Games",
+    slug: "number-guessing-game",
   },
   {
     name: "Password Generator",
     description: "Generate secure, random passwords with customizable options.",
     category: "Security",
-    icon: "Key",
     slug: "password-generator",
   },
   {
-    name: "HTML Entity Encoder/Decoder",
-    description: "Convert special characters to HTML entities and vice versa.",
-    category: "Web",
-    icon: "Code2",
-    slug: "html-entity-encoder-decoder",
+    name: "Percentage Calculator",
+    description: "Calculate percentages, percentage increase/decrease.",
+    category: "Utility",
+    slug: "percentage-calculator",
   },
   {
-    name: "CSV to JSON Converter",
-    description: "Convert CSV data to JSON format with customizable options.",
-    category: "Data",
-    icon: "Table",
-    slug: "csv-to-json-converter",
+    name: "QR Generator",
+    description: "Generate QR codes for text, URLs, and other data.",
+    category: "Utility",
+    slug: "qr-generator",
   },
   {
     name: "Regex Tester",
-    description: "Test regular expressions with real-time matching and explanation.",
+    description: "Test regular expressions with real-time matching.",
     category: "Development",
-    icon: "Search",
     slug: "regex-tester",
   },
   {
-    name: "Lorem Ipsum Generator",
-    description: "Generate placeholder text for design mockups and layouts.",
-    category: "Design",
-    icon: "Type",
-    slug: "lorem-ipsum-generator",
+    name: "Rock Paper Scissors",
+    description: "Play the classic Rock Paper Scissors game.",
+    category: "Games",
+    slug: "rock-paper-scissors",
+  },
+  {
+    name: "Text Case Converter",
+    description: "Convert text between different cases: lowercase, UPPERCASE, Title Case, and more.",
+    category: "Text",
+    slug: "text-case-converter",
+  },
+  {
+    name: "Unit Converter",
+    description: "Convert between different units of measurement.",
+    category: "Utility",
+    slug: "unit-converter",
+  },
+  {
+    name: "URL Encoder/Decoder",
+    description: "Encode and decode URLs to ensure they are properly formatted.",
+    category: "Web",
+    slug: "url-encoder",
   },
 ]
 
@@ -125,7 +167,7 @@ export default function ToolSphereProductPage() {
             </Link>
             <Link
               href="/products"
-              className="text-sm font-medium text-neutral-900 transition-colors hover:text-neutral-900"
+              className="text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900"
             >
               Products
             </Link>
@@ -182,6 +224,11 @@ export default function ToolSphereProductPage() {
                 <p className="text-xl text-neutral-600">
                   A comprehensive collection of web-based tools for developers, designers, and content creators.
                 </p>
+                <div className="pt-4">
+                  <Link href="/products/toolsphere/tools">
+                    <Button className="bg-brand-orange hover:bg-brand-orange/90">Explore All Tools</Button>
+                  </Link>
+                </div>
               </div>
               <div className="flex justify-center">
                 <div className="relative h-[300px] w-full max-w-[500px] overflow-hidden rounded-xl bg-gradient-to-br from-brand-orange-light to-brand-orange/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:shadow-brand-orange/20">
@@ -223,11 +270,6 @@ export default function ToolSphereProductPage() {
                   developers, designers, and content creators. Our platform offers a wide range of utilities that help
                   you accomplish everyday tasks more efficiently, all in one convenient location.
                 </p>
-                <p className="text-lg text-neutral-600">
-                  Whether you're formatting code, converting data between formats, generating placeholder content, or
-                  optimizing images, ToolSphere provides the tools you need with a clean, intuitive interface and no
-                  unnecessary distractions.
-                </p>
               </div>
 
               <div className="space-y-4">
@@ -235,7 +277,7 @@ export default function ToolSphereProductPage() {
                 <ul className="grid gap-3 sm:grid-cols-2">
                   <li className="flex items-start gap-2">
                     <Check className="h-5 w-5 text-brand-orange shrink-0 mt-0.5" />
-                    <span>All tools in one convenient platform</span>
+                    <span>21+ tools in one platform</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="h-5 w-5 text-brand-orange shrink-0 mt-0.5" />
@@ -243,32 +285,26 @@ export default function ToolSphereProductPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="h-5 w-5 text-brand-orange shrink-0 mt-0.5" />
-                    <span>No account required for basic tools</span>
+                    <span>No account required</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="h-5 w-5 text-brand-orange shrink-0 mt-0.5" />
-                    <span>Client-side processing for data privacy</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Check className="h-5 w-5 text-brand-orange shrink-0 mt-0.5" />
-                    <span>Regular updates with new tools</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Check className="h-5 w-5 text-brand-orange shrink-0 mt-0.5" />
-                    <span>Responsive design for all devices</span>
+                    <span>Client-side processing for privacy</span>
                   </li>
                 </ul>
               </div>
 
               {/* Tools Section */}
               <div className="space-y-6">
-                <h2 className="text-3xl font-bold">Available Tools</h2>
+                <h2 className="text-3xl font-bold">Available Tools ({tools.length})</h2>
 
                 {Object.entries(groupedTools).map(([category, categoryTools]) => (
                   <div key={category} className="space-y-4">
-                    <h3 className="text-xl font-bold text-brand-orange">{category} Tools</h3>
+                    <h3 className="text-xl font-bold text-brand-orange">
+                      {category} Tools ({categoryTools.length})
+                    </h3>
                     <div className="grid gap-4 sm:grid-cols-2">
-                      {categoryTools.map((tool, index) => (
+                      {categoryTools.slice(0, 4).map((tool, index) => (
                         <Link
                           key={index}
                           href={`/products/toolsphere/tools/${tool.slug}`}
@@ -279,6 +315,11 @@ export default function ToolSphereProductPage() {
                         </Link>
                       ))}
                     </div>
+                    {categoryTools.length > 4 && (
+                      <Link href="/products/toolsphere/tools" className="text-brand-orange hover:underline text-sm">
+                        View all {categoryTools.length} {category.toLowerCase()} tools →
+                      </Link>
+                    )}
                   </div>
                 ))}
               </div>
