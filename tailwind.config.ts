@@ -61,6 +61,12 @@ const config = {
           "blue-light": "#d0e3f5",
           "orange-light": "#fde8d9",
           "green-light": "#e0f0e9",
+          blue: "#2563eb",
+          "blue-light": "#dbeafe",
+          orange: "#ea580c",
+          "orange-light": "#fed7aa",
+          green: "#16a34a",
+          "green-light": "#dcfce7",
         },
       },
       borderRadius: {
