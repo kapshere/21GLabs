@@ -1,41 +1,16 @@
 import Link from "next/link"
+import Image from "next/image"
+import { ArrowRight } from "lucide-react"
+
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Globe, Wrench, BookOpen } from "lucide-react"
 
 export default function ExperimentsPage() {
-  const experiments = [
-    {
-      name: "Anuvadasetu",
-      description: "Breaking language barriers with AI-powered translation and localization services.",
-      icon: Globe,
-      color: "green",
-      href: "/experiments/anuvadasetu",
-      status: "Active",
-    },
-    {
-      name: "ToolSphere",
-      description: "A comprehensive collection of web-based tools for developers, designers, and content creators.",
-      icon: Wrench,
-      color: "orange",
-      href: "/experiments/toolsphere",
-      status: "Active",
-    },
-    {
-      name: "Philosophy Project",
-      description: "Making ancient Bharatiya philosophies accessible to modern audiences through podcasts and books.",
-      icon: BookOpen,
-      color: "indigo",
-      href: "/experiments/philosophy-project",
-      status: "Active",
-    },
-  ]
-
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-sm">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4">
+      <header id="top" className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-sm">
+        <div className="container flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <div className="relative h-8 w-8 overflow-hidden rounded-full bg-gradient-to-br from-neutral-200 to-neutral-100">
+            <div className="relative h-8 w-8 overflow-hidden rounded-full bg-gradient-to-br from-neutral-200 to-neutral-100 hover:shadow-lg hover:shadow-brand-blue/20 transition-all duration-300">
               <div className="absolute inset-0 flex items-center justify-center text-lg font-bold text-neutral-800">
                 21
               </div>
@@ -71,102 +46,127 @@ export default function ExperimentsPage() {
               href="/contact"
               className="text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900"
             >
-              Contact
+              Get in Touch
             </Link>
           </nav>
+          <Button variant="ghost" size="icon" className="md:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-6 w-6"
+            >
+              <line x1="4" x2="20" y1="12" y2="12" />
+              <line x1="4" x2="20" y1="6" y2="6" />
+              <line x1="4" x2="20" y1="18" y2="18" />
+            </svg>
+            <span className="sr-only">Toggle menu</span>
+          </Button>
         </div>
       </header>
-
       <main className="flex-1">
-        <section className="relative overflow-hidden bg-gradient-to-b from-purple-50 to-white py-20 md:py-32">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-4xl text-center">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Our Experiments</h1>
-              <p className="mt-6 text-lg leading-8 text-gray-600">
-                Innovative projects and tools where we explore new possibilities and push the boundaries of technology.
-              </p>
+        <section className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+                  Our Experiments
+                </h1>
+                <p className="mx-auto max-w-[700px] text-neutral-600 md:text-xl">
+                  Exploring new ideas and concepts in technology and philosophy.
+                </p>
+              </div>
             </div>
-          </div>
-        </section>
-
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-6xl">
-              <div className="grid gap-8 md:grid-cols-3">
-                {experiments.map((experiment) => {
-                  const Icon = experiment.icon
-                  return (
-                    <div
-                      key={experiment.name}
-                      className="group relative overflow-hidden rounded-lg border bg-white p-8 shadow-sm transition-all hover:shadow-lg"
-                    >
-                      <div className="flex flex-col items-center text-center">
-                        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gray-100 mb-4">
-                          <Icon className="h-8 w-8 text-gray-600" />
+            <div className="mx-auto grid max-w-5xl gap-8 py-12 md:grid-cols-2">
+              {[
+                {
+                  title: "The Philosophy Project",
+                  description:
+                    "Publishing ancient Bharatiya philosophies in modern formats. Access timeless wisdom through podcasts, videos, and books designed for all generations to easily understand and appreciate.",
+                  image: "/images/philosophy.jpg",
+                  color: "bg-brand-blue-light text-brand-blue",
+                  link: "/products/philosophy-project#top",
+                  shadowColor: "shadow-brand-blue/20",
+                },
+                {
+                  title: "ToolSphere",
+                  description:
+                    "A comprehensive collection of web-based tools for developers, designers, and content creators. All the utilities you need in one convenient location.",
+                  image: "/images/toolsphere.jpg",
+                  color: "bg-brand-orange-light text-brand-orange",
+                  link: "/products/toolsphere#top",
+                  shadowColor: "shadow-brand-orange/20",
+                },
+              ].map((experiment, i) => (
+                <div
+                  key={i}
+                  className={`group relative overflow-hidden rounded-lg border bg-white shadow-sm transition-all hover:shadow-lg ${experiment.shadowColor} duration-300`}
+                >
+                  <div className="aspect-video overflow-hidden">
+                    <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+                      {experiment.image.includes("/images/") ? (
+                        <div className="w-full h-full bg-gray-100 flex items-center justify-center">
+                          <div className={`p-4 rounded-lg ${experiment.color.split(" ")[0]}`}>
+                            <span className={`text-2xl font-bold ${experiment.color.split(" ")[1]}`}>
+                              {experiment.title}
+                            </span>
+                          </div>
                         </div>
-                        <div className="flex items-center gap-2 mb-2">
-                          <h3 className="text-xl font-bold text-gray-900">{experiment.name}</h3>
-                          <span className="inline-flex items-center rounded-full px-2 py-1 text-xs font-medium bg-green-100 text-green-800">
-                            {experiment.status}
-                          </span>
-                        </div>
-                        <p className="text-gray-600 mb-6">{experiment.description}</p>
-                        <Link href={experiment.href}>
-                          <Button variant="outline" size="sm">
-                            Explore
-                            <ArrowRight className="ml-2 h-4 w-4" />
-                          </Button>
-                        </Link>
-                      </div>
+                      ) : (
+                        <Image
+                          src={experiment.image || "/placeholder.svg"}
+                          alt={experiment.title}
+                          width={600}
+                          height={400}
+                          className="object-cover transition-transform group-hover:scale-105"
+                          unoptimized
+                        />
+                      )}
                     </div>
-                  )
-                })}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-purple-600 py-16">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Join Our Experiments</h2>
-              <p className="mt-4 text-lg text-purple-100">
-                Be part of our journey as we explore new frontiers in technology and innovation.
-              </p>
-              <div className="mt-8">
-                <Link href="/contact">
-                  <Button variant="outline" size="lg" className="bg-white text-purple-600 hover:bg-gray-50">
-                    Get Involved
-                  </Button>
-                </Link>
-              </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="mt-4 text-xl font-bold">{experiment.title}</h3>
+                    <p className="mt-2 text-sm text-neutral-600">{experiment.description}</p>
+                    <Link
+                      href={experiment.link}
+                      className={`mt-4 inline-flex items-center text-sm font-medium ${experiment.color.split(" ")[1]} hover:underline`}
+                    >
+                      Learn more
+                      <ArrowRight className="ml-1 h-4 w-4" />
+                    </Link>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
       </main>
-
-      <footer className="border-t bg-white py-8">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <div className="flex items-center gap-2">
-              <div className="relative h-6 w-6 overflow-hidden rounded-full bg-gradient-to-br from-neutral-200 to-neutral-100">
-                <div className="absolute inset-0 flex items-center justify-center text-xs font-bold text-neutral-800">
-                  21
-                </div>
+      <footer className="w-full border-t bg-white py-6 md:py-8">
+        <div className="container flex flex-col items-center justify-between gap-4 md:flex-row">
+          <div className="flex items-center gap-2">
+            <div className="relative h-6 w-6 overflow-hidden rounded-full bg-gradient-to-br from-neutral-200 to-neutral-100 hover:shadow-sm hover:shadow-brand-blue/20 transition-all duration-300">
+              <div className="absolute inset-0 flex items-center justify-center text-xs font-bold text-neutral-800">
+                21
               </div>
-              <span className="text-sm font-medium">21GLabs</span>
             </div>
-            <p className="text-center text-sm text-neutral-500 md:text-left">
-              © 2025 21GLabs. All rights reserved. Incorporated in India.
-            </p>
-            <div className="flex gap-4">
-              <Link href="#" className="text-sm text-neutral-500 hover:underline">
-                Privacy Policy
-              </Link>
-              <Link href="#" className="text-sm text-neutral-500 hover:underline">
-                Terms of Service
-              </Link>
-            </div>
+            <span className="text-sm font-medium">21GLabs</span>
+          </div>
+          <p className="text-center text-sm text-neutral-500 md:text-left">
+            © 2025 21GLabs. All rights reserved. Incorporated in India.
+          </p>
+          <div className="flex gap-4">
+            <Link href="#" className="text-sm text-neutral-500 hover:underline">
+              Privacy Policy
+            </Link>
+            <Link href="#" className="text-sm text-neutral-500 hover:underline">
+              Terms of Service
+            </Link>
           </div>
         </div>
       </footer>

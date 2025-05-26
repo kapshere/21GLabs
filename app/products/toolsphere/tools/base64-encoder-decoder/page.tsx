@@ -1,110 +1,115 @@
 "use client"
 
 import { useState } from "react"
-import Link from "next/link"
-import { ArrowLeft, Copy, RotateCcw } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Textarea } from "@/components/ui/textarea"
+import { Label } from "@/components/ui/label"
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-export default function Base64EncoderDecoder() {
+export default function Base64EncoderDecoderPage() {
   const [inputText, setInputText] = useState("")
   const [outputText, setOutputText] = useState("")
-  const [mode, setMode] = useState<"encode" | "decode">("encode")
+  const [activeTab, setActiveTab] = useState("encode")
   const [error, setError] = useState("")
 
-  const processText = () => {
+  const handleEncode = () => {
+    if (!inputText) {
+      setError("Please enter text to encode")
+      return
+    }
     try {
-      if (mode === "encode") {
-        const encoded = btoa(inputText)
-        setOutputText(encoded)
-        setError("")
-      } else {
-        const decoded = atob(inputText)
-        setOutputText(decoded)
-        setError("")
-      }
+      const encoded = btoa(inputText)
+      setOutputText(encoded)
+      setError("")
     } catch (err) {
-      setError(mode === "decode" ? "Invalid Base64 format" : "Encoding error")
-      setOutputText("")
+      setError("Error encoding text. Make sure it contains valid characters.")
     }
   }
 
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(outputText)
+  const handleDecode = () => {
+    if (!inputText) {
+      setError("Please enter Base64 to decode")
+      return
+    }
+    try {
+      const decoded = atob(inputText)
+      setOutputText(decoded)
+      setError("")
+    } catch (err) {
+      setError("Error decoding Base64. Make sure it's valid Base64 format.")
+    }
   }
 
-  const reset = () => {
-    setInputText("")
-    setOutputText("")
-    setError("")
+  const handleProcess = () => {
+    if (activeTab === "encode") {
+      handleEncode()
+    } else {
+      handleDecode()
+    }
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-8">
-        <Link href="/products/toolsphere" className="inline-flex items-center text-sm font-medium text-orange-600 mb-6">
-          <ArrowLeft className="mr-1 h-4 w-4" />
-          Back to ToolSphere
-        </Link>
+    <div>
+      <h1 className="text-3xl font-bold mt-4">Base64 Encoder/Decoder</h1>
+      <p className="text-neutral-600 mt-2 mb-6">
+        Encode text to Base64 or decode Base64 to text with support for various character sets.
+      </p>
 
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl font-bold mb-2">Base64 Encoder/Decoder</h1>
-          <p className="text-gray-600 mb-8">
-            Encode text to Base64 or decode Base64 to text with support for various character sets.
-          </p>
+      <Tabs defaultValue="encode" value={activeTab} onValueChange={setActiveTab} className="w-full mb-6">
+        <TabsList className="grid w-full grid-cols-2">
+          <TabsTrigger value="encode">Encode</TabsTrigger>
+          <TabsTrigger value="decode">Decode</TabsTrigger>
+        </TabsList>
+      </Tabs>
 
-          <div className="bg-white rounded-lg shadow-sm border p-6 space-y-6">
-            <div className="flex gap-4">
-              <Button onClick={() => setMode("encode")} variant={mode === "encode" ? "default" : "outline"}>
-                Encode
-              </Button>
-              <Button onClick={() => setMode("decode")} variant={mode === "decode" ? "default" : "outline"}>
-                Decode
-              </Button>
-            </div>
+      <div className="grid gap-8 md:grid-cols-2">
+        <div className="space-y-4">
+          <div>
+            <Label htmlFor="input-text">{activeTab === "encode" ? "Text to Encode" : "Base64 to Decode"}</Label>
+            <Textarea
+              id="input-text"
+              placeholder={activeTab === "encode" ? "Enter text to encode..." : "Enter Base64 to decode..."}
+              className="min-h-[200px]"
+              value={inputText}
+              onChange={(e) => setInputText(e.target.value)}
+            />
+          </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                {mode === "encode" ? "Text to Encode" : "Base64 to Decode"}
-              </label>
-              <textarea
-                value={inputText}
-                onChange={(e) => setInputText(e.target.value)}
-                placeholder={mode === "encode" ? "Enter text to encode..." : "Enter Base64 to decode..."}
-                className="w-full h-32 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
-              />
-            </div>
+          {error && <div className="p-3 bg-red-50 border border-red-200 rounded-md text-red-600 text-sm">{error}</div>}
 
-            <div className="flex gap-2">
-              <Button onClick={processText} disabled={!inputText}>
-                {mode === "encode" ? "Encode" : "Decode"}
-              </Button>
-              <Button onClick={reset} variant="outline">
-                <RotateCcw className="h-4 w-4 mr-1" />
-                Reset
-              </Button>
-            </div>
+          <Button className="w-full bg-brand-orange text-white hover:bg-brand-orange/90" onClick={handleProcess}>
+            {activeTab === "encode" ? "Encode to Base64" : "Decode from Base64"}
+          </Button>
+        </div>
 
-            {error && <p className="text-red-500 text-sm">{error}</p>}
-
-            <div>
-              <div className="flex items-center justify-between mb-2">
-                <label className="block text-sm font-medium text-gray-700">
-                  {mode === "encode" ? "Encoded Base64" : "Decoded Text"}
-                </label>
-                <Button onClick={copyToClipboard} variant="outline" size="sm" disabled={!outputText}>
-                  <Copy className="h-4 w-4 mr-1" />
-                  Copy
-                </Button>
-              </div>
-              <textarea
-                value={outputText}
-                readOnly
-                placeholder={
-                  mode === "encode" ? "Encoded Base64 will appear here..." : "Decoded text will appear here..."
+        <div className="space-y-4">
+          <div>
+            <Label htmlFor="output-text">Result</Label>
+            <Textarea id="output-text" className="min-h-[200px]" value={outputText} readOnly />
+          </div>
+          <div className="flex gap-2">
+            <Button
+              variant="outline"
+              className="flex-1"
+              onClick={() => {
+                if (outputText) {
+                  navigator.clipboard.writeText(outputText)
                 }
-                className="w-full h-32 p-3 border border-gray-300 rounded-md bg-gray-50"
-              />
-            </div>
+              }}
+            >
+              Copy to Clipboard
+            </Button>
+            <Button
+              variant="outline"
+              className="flex-1"
+              onClick={() => {
+                setInputText(outputText)
+                setOutputText("")
+                setActiveTab(activeTab === "encode" ? "decode" : "encode")
+              }}
+            >
+              Use as Input
+            </Button>
           </div>
         </div>
       </div>
