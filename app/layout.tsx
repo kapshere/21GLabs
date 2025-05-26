@@ -1,19 +1,24 @@
 import type React from "react"
-import ClientComponent from "./client"
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import "./globals.css"
 
-export const metadata = {
-  title: "21GLabs - Emerging Technology Solutions",
-  description: "Innovative B2B and B2C technology products designed for the future",
+const inter = Inter({ subsets: ["latin"] })
+
+export const metadata: Metadata = {
+  title: "21GLabs - Innovation in Technology",
+  description: "Building the future with innovative technology solutions",
     generator: 'v0.dev'
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
-  return <ClientComponent>{children}</ClientComponent>
+}) {
+  return (
+    <html lang="en">
+      <body className={inter.className}>{children}</body>
+    </html>
+  )
 }
-
-
-import './globals.css'

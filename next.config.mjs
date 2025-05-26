@@ -1,19 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // For GitHub Pages, we need basePath, but for Vercel we should remove it
-  // basePath: process.env.NODE_ENV === "production" ? "/21GLabs" : "",
-  
-  images: { 
-    unoptimized: true 
+  experimental: {
+    appDir: true,
   },
-  reactStrictMode: true,
-  swcMinify: true,
   eslint: {
     ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: true,
-  }
+  },
+  images: {
+    domains: ['localhost'],
+    unoptimized: true,
+  },
 }
 
 export default nextConfig
