@@ -1,33 +1,32 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Users, Briefcase, Eye } from "lucide-react"
+import { ArrowRight, Globe, Wrench, BookOpen } from "lucide-react"
 
-export default function ProductsPage() {
-  const products = [
+export default function ExperimentsPage() {
+  const experiments = [
     {
-      name: "Connect",
-      description:
-        "A revolutionary social media platform that prioritizes meaningful connections and authentic conversations.",
-      icon: Users,
-      color: "blue",
-      href: "/products/connect",
-      status: "In Development",
+      name: "Anuvadasetu",
+      description: "Breaking language barriers with AI-powered translation and localization services.",
+      icon: Globe,
+      color: "green",
+      href: "/experiments/anuvadasetu",
+      status: "Active",
     },
     {
-      name: "Blockshack",
-      description: "Empowering the gig economy with blockchain technology and smart contracts.",
-      icon: Briefcase,
-      color: "purple",
-      href: "/products/blockshack",
-      status: "In Development",
+      name: "ToolSphere",
+      description: "A comprehensive collection of web-based tools for developers, designers, and content creators.",
+      icon: Wrench,
+      color: "orange",
+      href: "/experiments/toolsphere",
+      status: "Active",
     },
     {
-      name: "Stealth Mode",
-      description: "Revolutionary product in development. Details will be revealed soon.",
-      icon: Eye,
-      color: "gray",
-      href: "#",
-      status: "Coming Soon",
+      name: "Philosophy Project",
+      description: "Making ancient Bharatiya philosophies accessible to modern audiences through podcasts and books.",
+      icon: BookOpen,
+      color: "indigo",
+      href: "/experiments/philosophy-project",
+      status: "Active",
     },
   ]
 
@@ -52,13 +51,13 @@ export default function ProductsPage() {
             </Link>
             <Link
               href="/products"
-              className="text-sm font-medium text-neutral-900 transition-colors hover:text-neutral-900"
+              className="text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900"
             >
               Products
             </Link>
             <Link
               href="/experiments"
-              className="text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900"
+              className="text-sm font-medium text-neutral-900 transition-colors hover:text-neutral-900"
             >
               Experiments
             </Link>
@@ -79,12 +78,12 @@ export default function ProductsPage() {
       </header>
 
       <main className="flex-1">
-        <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white py-20 md:py-32">
+        <section className="relative overflow-hidden bg-gradient-to-b from-purple-50 to-white py-20 md:py-32">
           <div className="container mx-auto px-4">
             <div className="mx-auto max-w-4xl text-center">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Our Products</h1>
+              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Our Experiments</h1>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                Production-ready solutions designed to solve real-world problems and enhance digital experiences.
+                Innovative projects and tools where we explore new possibilities and push the boundaries of technology.
               </p>
             </div>
           </div>
@@ -94,40 +93,30 @@ export default function ProductsPage() {
           <div className="container mx-auto px-4">
             <div className="mx-auto max-w-6xl">
               <div className="grid gap-8 md:grid-cols-3">
-                {products.map((product) => {
-                  const Icon = product.icon
+                {experiments.map((experiment) => {
+                  const Icon = experiment.icon
                   return (
                     <div
-                      key={product.name}
+                      key={experiment.name}
                       className="group relative overflow-hidden rounded-lg border bg-white p-8 shadow-sm transition-all hover:shadow-lg"
                     >
                       <div className="flex flex-col items-center text-center">
-                        <div
-                          className={`flex h-16 w-16 items-center justify-center rounded-full bg-${product.color}-100 mb-4`}
-                        >
-                          <Icon className={`h-8 w-8 text-${product.color}-600`} />
+                        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gray-100 mb-4">
+                          <Icon className="h-8 w-8 text-gray-600" />
                         </div>
                         <div className="flex items-center gap-2 mb-2">
-                          <h3 className="text-xl font-bold text-gray-900">{product.name}</h3>
-                          <span
-                            className={`inline-flex items-center rounded-full px-2 py-1 text-xs font-medium bg-${product.color}-100 text-${product.color}-800`}
-                          >
-                            {product.status}
+                          <h3 className="text-xl font-bold text-gray-900">{experiment.name}</h3>
+                          <span className="inline-flex items-center rounded-full px-2 py-1 text-xs font-medium bg-green-100 text-green-800">
+                            {experiment.status}
                           </span>
                         </div>
-                        <p className="text-gray-600 mb-6">{product.description}</p>
-                        {product.href === "#" ? (
-                          <Button variant="outline" size="sm" disabled>
-                            Coming Soon
+                        <p className="text-gray-600 mb-6">{experiment.description}</p>
+                        <Link href={experiment.href}>
+                          <Button variant="outline" size="sm">
+                            Explore
+                            <ArrowRight className="ml-2 h-4 w-4" />
                           </Button>
-                        ) : (
-                          <Link href={product.href}>
-                            <Button variant="outline" size="sm">
-                              Learn More
-                              <ArrowRight className="ml-2 h-4 w-4" />
-                            </Button>
-                          </Link>
-                        )}
+                        </Link>
                       </div>
                     </div>
                   )
@@ -137,24 +126,17 @@ export default function ProductsPage() {
           </div>
         </section>
 
-        <section className="bg-gray-50 py-16">
+        <section className="bg-purple-600 py-16">
           <div className="container mx-auto px-4">
             <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Interested in our products?
-              </h2>
-              <p className="mt-4 text-lg text-gray-600">
-                Get in touch to learn more about our solutions and how they can help your business.
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Join Our Experiments</h2>
+              <p className="mt-4 text-lg text-purple-100">
+                Be part of our journey as we explore new frontiers in technology and innovation.
               </p>
-              <div className="mt-8 flex gap-4 justify-center">
+              <div className="mt-8">
                 <Link href="/contact">
-                  <Button size="lg" className="bg-orange-600 hover:bg-orange-700">
-                    Contact Us
-                  </Button>
-                </Link>
-                <Link href="/experiments">
-                  <Button variant="outline" size="lg">
-                    View Experiments
+                  <Button variant="outline" size="lg" className="bg-white text-purple-600 hover:bg-gray-50">
+                    Get Involved
                   </Button>
                 </Link>
               </div>
