@@ -1,19 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: { 
-    unoptimized: true 
+  experimental: {
+    appDir: true,
   },
-  reactStrictMode: true,
-  swcMinify: true,
   eslint: {
     ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: true,
   },
-  experimental: {
-    optimizePackageImports: ['lucide-react']
-  }
+  images: {
+    domains: ['localhost'],
+    unoptimized: true,
+  },
 }
 
 export default nextConfig

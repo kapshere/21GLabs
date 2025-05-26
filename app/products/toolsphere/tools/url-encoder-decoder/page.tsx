@@ -1,119 +1,101 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
+import { ArrowLeft, Copy, RotateCcw } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-export default function UrlEncoderDecoderPage() {
+export default function UrlEncoderDecoder() {
   const [inputText, setInputText] = useState("")
   const [outputText, setOutputText] = useState("")
-  const [activeTab, setActiveTab] = useState("encode")
-  const [error, setError] = useState("")
+  const [mode, setMode] = useState<"encode" | "decode">("encode")
 
-  const handleEncode = () => {
-    if (!inputText) {
-      setError("Please enter text to encode")
-      return
-    }
+  const processText = () => {
     try {
-      const encoded = encodeURIComponent(inputText)
-      setOutputText(encoded)
-      setError("")
+      if (mode === "encode") {
+        const encoded = encodeURIComponent(inputText)
+        setOutputText(encoded)
+      } else {
+        const decoded = decodeURIComponent(inputText)
+        setOutputText(decoded)
+      }
     } catch (err) {
-      setError("Error encoding URL. Please check your input.")
+      setOutputText("Error processing URL")
     }
   }
 
-  const handleDecode = () => {
-    if (!inputText) {
-      setError("Please enter URL encoded text to decode")
-      return
-    }
-    try {
-      const decoded = decodeURIComponent(inputText)
-      setOutputText(decoded)
-      setError("")
-    } catch (err) {
-      setError("Error decoding URL. Make sure it's properly encoded.")
-    }
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(outputText)
   }
 
-  const handleProcess = () => {
-    if (activeTab === "encode") {
-      handleEncode()
-    } else {
-      handleDecode()
-    }
+  const reset = () => {
+    setInputText("")
+    setOutputText("")
   }
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold mt-4">URL Encoder/Decoder</h1>
-      <p className="text-neutral-600 mt-2 mb-6">
-        Encode and decode URLs to ensure they are properly formatted for web use.
-      </p>
+    <div className="min-h-screen bg-gray-50">
+      <div className="container mx-auto px-4 py-8">
+        <Link href="/products/toolsphere" className="inline-flex items-center text-sm font-medium text-orange-600 mb-6">
+          <ArrowLeft className="mr-1 h-4 w-4" />
+          Back to ToolSphere
+        </Link>
 
-      <Tabs defaultValue="encode" value={activeTab} onValueChange={setActiveTab} className="w-full mb-6">
-        <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="encode">Encode</TabsTrigger>
-          <TabsTrigger value="decode">Decode</TabsTrigger>
-        </TabsList>
-      </Tabs>
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-3xl font-bold mb-2">URL Encoder/Decoder</h1>
+          <p className="text-gray-600 mb-8">
+            Encode and decode URLs to ensure they are properly formatted for web use.
+          </p>
 
-      <div className="grid gap-8 md:grid-cols-2">
-        <div className="space-y-4">
-          <div>
-            <Label htmlFor="input-text">
-              {activeTab === "encode" ? "Text to Encode" : "URL Encoded Text to Decode"}
-            </Label>
-            <Textarea
-              id="input-text"
-              placeholder={
-                activeTab === "encode" ? "Enter text to URL encode..." : "Enter URL encoded text to decode..."
-              }
-              className="min-h-[200px]"
-              value={inputText}
-              onChange={(e) => setInputText(e.target.value)}
-            />
-          </div>
+          <div className="bg-white rounded-lg shadow-sm border p-6 space-y-6">
+            <div className="flex gap-4">
+              <Button onClick={() => setMode("encode")} variant={mode === "encode" ? "default" : "outline"}>
+                Encode
+              </Button>
+              <Button onClick={() => setMode("decode")} variant={mode === "decode" ? "default" : "outline"}>
+                Decode
+              </Button>
+            </div>
 
-          {error && <div className="p-3 bg-red-50 border border-red-200 rounded-md text-red-600 text-sm">{error}</div>}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                {mode === "encode" ? "URL to Encode" : "URL to Decode"}
+              </label>
+              <textarea
+                value={inputText}
+                onChange={(e) => setInputText(e.target.value)}
+                placeholder={mode === "encode" ? "Enter URL to encode..." : "Enter encoded URL to decode..."}
+                className="w-full h-32 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+              />
+            </div>
 
-          <Button className="w-full bg-brand-orange text-white hover:bg-brand-orange/90" onClick={handleProcess}>
-            {activeTab === "encode" ? "Encode URL" : "Decode URL"}
-          </Button>
-        </div>
+            <div className="flex gap-2">
+              <Button onClick={processText} disabled={!inputText}>
+                {mode === "encode" ? "Encode URL" : "Decode URL"}
+              </Button>
+              <Button onClick={reset} variant="outline">
+                <RotateCcw className="h-4 w-4 mr-1" />
+                Reset
+              </Button>
+            </div>
 
-        <div className="space-y-4">
-          <div>
-            <Label htmlFor="output-text">Result</Label>
-            <Textarea id="output-text" className="min-h-[200px]" value={outputText} readOnly />
-          </div>
-          <div className="flex gap-2">
-            <Button
-              variant="outline"
-              className="flex-1"
-              onClick={() => {
-                if (outputText) {
-                  navigator.clipboard.writeText(outputText)
-                }
-              }}
-            >
-              Copy to Clipboard
-            </Button>
-            <Button
-              variant="outline"
-              className="flex-1"
-              onClick={() => {
-                setInputText(outputText)
-                setOutputText("")
-                setActiveTab(activeTab === "encode" ? "decode" : "encode")
-              }}
-            >
-              Use as Input
-            </Button>
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <label className="block text-sm font-medium text-gray-700">
+                  {mode === "encode" ? "Encoded URL" : "Decoded URL"}
+                </label>
+                <Button onClick={copyToClipboard} variant="outline" size="sm" disabled={!outputText}>
+                  <Copy className="h-4 w-4 mr-1" />
+                  Copy
+                </Button>
+              </div>
+              <textarea
+                value={outputText}
+                readOnly
+                placeholder={mode === "encode" ? "Encoded URL will appear here..." : "Decoded URL will appear here..."}
+                className="w-full h-32 p-3 border border-gray-300 rounded-md bg-gray-50"
+              />
+            </div>
           </div>
         </div>
       </div>

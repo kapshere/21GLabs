@@ -1,107 +1,106 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
+import { ArrowLeft, Copy, RotateCcw } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-export default function JsonFormatterPage() {
-  const [jsonInput, setJsonInput] = useState("")
-  const [formattedJson, setFormattedJson] = useState("")
-  const [minifiedJson, setMinifiedJson] = useState("")
+export default function JsonFormatter() {
+  const [inputJson, setInputJson] = useState("")
+  const [outputJson, setOutputJson] = useState("")
   const [error, setError] = useState("")
 
   const formatJson = () => {
-    if (!jsonInput.trim()) {
-      setError("Please enter JSON to format")
-      return
-    }
-
     try {
-      // Parse the JSON to validate it
-      const parsedJson = JSON.parse(jsonInput)
-
-      // Format with indentation
-      const formatted = JSON.stringify(parsedJson, null, 2)
-      setFormattedJson(formatted)
-
-      // Minify
-      const minified = JSON.stringify(parsedJson)
-      setMinifiedJson(minified)
-
+      const parsed = JSON.parse(inputJson)
+      const formatted = JSON.stringify(parsed, null, 2)
+      setOutputJson(formatted)
       setError("")
     } catch (err) {
-      setError(`Invalid JSON: ${err instanceof Error ? err.message : "Unknown error"}`)
-      setFormattedJson("")
-      setMinifiedJson("")
+      setError("Invalid JSON format")
+      setOutputJson("")
     }
   }
 
+  const minifyJson = () => {
+    try {
+      const parsed = JSON.parse(inputJson)
+      const minified = JSON.stringify(parsed)
+      setOutputJson(minified)
+      setError("")
+    } catch (err) {
+      setError("Invalid JSON format")
+      setOutputJson("")
+    }
+  }
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(outputJson)
+  }
+
+  const reset = () => {
+    setInputJson("")
+    setOutputJson("")
+    setError("")
+  }
+
   return (
-    <div>
-      <h1 className="text-3xl font-bold mt-4">JSON Formatter</h1>
-      <p className="text-neutral-600 mt-2 mb-6">
-        Format and validate JSON data with syntax highlighting and error detection.
-      </p>
+    <div className="min-h-screen bg-gray-50">
+      <div className="container mx-auto px-4 py-8">
+        <Link href="/products/toolsphere" className="inline-flex items-center text-sm font-medium text-orange-600 mb-6">
+          <ArrowLeft className="mr-1 h-4 w-4" />
+          Back to ToolSphere
+        </Link>
 
-      <div className="grid gap-8 md:grid-cols-2">
-        <div className="space-y-4">
-          <div>
-            <Label htmlFor="json-input">Input JSON</Label>
-            <Textarea
-              id="json-input"
-              placeholder='{"example": "Paste your JSON here"}'
-              className="min-h-[300px] font-mono text-sm"
-              value={jsonInput}
-              onChange={(e) => setJsonInput(e.target.value)}
-            />
-          </div>
+        <div className="max-w-6xl mx-auto">
+          <h1 className="text-3xl font-bold mb-2">JSON Formatter</h1>
+          <p className="text-gray-600 mb-8">
+            Format and validate JSON data with syntax highlighting and error detection.
+          </p>
 
-          {error && <div className="p-3 bg-red-50 border border-red-200 rounded-md text-red-600 text-sm">{error}</div>}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="bg-white rounded-lg shadow-sm border p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-lg font-semibold">Input JSON</h2>
+                <div className="flex gap-2">
+                  <Button onClick={formatJson} size="sm">
+                    Format
+                  </Button>
+                  <Button onClick={minifyJson} variant="outline" size="sm">
+                    Minify
+                  </Button>
+                </div>
+              </div>
+              <textarea
+                value={inputJson}
+                onChange={(e) => setInputJson(e.target.value)}
+                placeholder='{"name": "example", "value": 123}'
+                className="w-full h-96 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500 font-mono text-sm"
+              />
+              {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+            </div>
 
-          <Button className="w-full bg-brand-orange text-white hover:bg-brand-orange/90" onClick={formatJson}>
-            Format JSON
-          </Button>
-        </div>
-
-        <div className="space-y-4">
-          <Tabs defaultValue="formatted" className="w-full">
-            <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="formatted">Formatted</TabsTrigger>
-              <TabsTrigger value="minified">Minified</TabsTrigger>
-            </TabsList>
-            <TabsContent value="formatted">
-              <Textarea className="min-h-[300px] font-mono text-sm" value={formattedJson} readOnly />
-            </TabsContent>
-            <TabsContent value="minified">
-              <Textarea className="min-h-[300px] font-mono text-sm" value={minifiedJson} readOnly />
-            </TabsContent>
-          </Tabs>
-
-          <div className="flex gap-2">
-            <Button
-              variant="outline"
-              className="flex-1"
-              onClick={() => {
-                if (formattedJson) {
-                  navigator.clipboard.writeText(formattedJson)
-                }
-              }}
-            >
-              Copy Formatted
-            </Button>
-            <Button
-              variant="outline"
-              className="flex-1"
-              onClick={() => {
-                if (minifiedJson) {
-                  navigator.clipboard.writeText(minifiedJson)
-                }
-              }}
-            >
-              Copy Minified
-            </Button>
+            <div className="bg-white rounded-lg shadow-sm border p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-lg font-semibold">Output JSON</h2>
+                <div className="flex gap-2">
+                  <Button onClick={copyToClipboard} variant="outline" size="sm" disabled={!outputJson}>
+                    <Copy className="h-4 w-4 mr-1" />
+                    Copy
+                  </Button>
+                  <Button onClick={reset} variant="outline" size="sm">
+                    <RotateCcw className="h-4 w-4 mr-1" />
+                    Reset
+                  </Button>
+                </div>
+              </div>
+              <textarea
+                value={outputJson}
+                readOnly
+                placeholder="Formatted JSON will appear here..."
+                className="w-full h-96 p-3 border border-gray-300 rounded-md bg-gray-50 font-mono text-sm"
+              />
+            </div>
           </div>
         </div>
       </div>

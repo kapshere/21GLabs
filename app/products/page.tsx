@@ -1,16 +1,50 @@
 import Link from "next/link"
-import Image from "next/image"
-import { ArrowRight } from "lucide-react"
-
 import { Button } from "@/components/ui/button"
+import { ArrowRight, Users, Globe, Briefcase, Wrench } from "lucide-react"
 
 export default function ProductsPage() {
+  const products = [
+    {
+      name: "Connect",
+      description:
+        "A revolutionary social media platform that prioritizes meaningful connections and authentic conversations.",
+      icon: Users,
+      color: "blue",
+      href: "/products/connect",
+      status: "In Development",
+    },
+    {
+      name: "Anuvadasetu",
+      description: "Breaking language barriers with AI-powered translation and localization services.",
+      icon: Globe,
+      color: "green",
+      href: "/products/anuvadasetu",
+      status: "In Development",
+    },
+    {
+      name: "Blockshack",
+      description: "Empowering the gig economy with blockchain technology and smart contracts.",
+      icon: Briefcase,
+      color: "purple",
+      href: "/products/blockshack",
+      status: "In Development",
+    },
+    {
+      name: "ToolSphere",
+      description: "A comprehensive collection of web-based tools for developers, designers, and content creators.",
+      icon: Wrench,
+      color: "orange",
+      href: "/products/toolsphere",
+      status: "Coming Soon",
+    },
+  ]
+
   return (
     <div className="flex min-h-screen flex-col">
-      <header id="top" className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-sm">
-        <div className="container flex h-16 items-center justify-between">
+      <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-sm">
+        <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <Link href="/" className="flex items-center gap-2">
-            <div className="relative h-8 w-8 overflow-hidden rounded-full bg-gradient-to-br from-neutral-200 to-neutral-100 hover:shadow-lg hover:shadow-brand-blue/20 transition-all duration-300">
+            <div className="relative h-8 w-8 overflow-hidden rounded-full bg-gradient-to-br from-neutral-200 to-neutral-100">
               <div className="absolute inset-0 flex items-center justify-center text-lg font-bold text-neutral-800">
                 21
               </div>
@@ -31,181 +65,109 @@ export default function ProductsPage() {
               Products
             </Link>
             <Link
-              href="/experiments"
-              className="text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900"
-            >
-              Experiments
-            </Link>
-            <Link
-              href="/blog"
-              className="text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900"
-            >
-              Blog
-            </Link>
-            <Link
               href="/contact"
               className="text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900"
             >
-              Get in Touch
+              Contact
             </Link>
           </nav>
-          <Button variant="ghost" size="icon" className="md:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-6 w-6"
-            >
-              <line x1="4" x2="20" y1="12" y2="12" />
-              <line x1="4" x2="20" y1="6" y2="6" />
-              <line x1="4" x2="20" y1="18" y2="18" />
-            </svg>
-            <span className="sr-only">Toggle menu</span>
-          </Button>
         </div>
       </header>
 
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                  Our Products
-                </h1>
-                <p className="mx-auto max-w-[700px] text-neutral-600 md:text-xl">
-                  Innovative solutions for businesses and consumers.
-                </p>
-              </div>
-            </div>
-            <div className="mx-auto grid max-w-5xl gap-8 py-12 md:grid-cols-2 lg:grid-cols-3">
-              {[
-                {
-                  title: "Connect",
-                  description:
-                    "Real People. Real Connections. Connect with others through authentic commitments, celebrations, and memories. No fake profiles, just real interaction. You're not real if you can't commit.",
-                  type: "B2B/B2C",
-                  image: "/images/connect.jpg",
-                  color: "bg-brand-blue-light text-brand-blue",
-                  link: "https://connect.21glabs.in",
-                  shadowColor: "shadow-brand-blue/20",
-                },
-                {
-                  title: "Anuvādasetu",
-                  description:
-                    "Translate your English books to native Indian languages and expand your reach. Break language barriers and connect with a wider audience across India's diverse linguistic landscape.",
-                  type: "B2B/B2C",
-                  image: "/images/anuvadasetu.jpg",
-                  color: "bg-brand-orange-light text-brand-orange",
-                  link: "https://anuvadasetu.21glabs.in",
-                  shadowColor: "shadow-brand-orange/20",
-                },
-                {
-                  title: "Blockshack",
-                  description:
-                    "A new age LinkedIn where every individual is a business entrepreneur and runs their own shop or shack for earning a living. Replacing LinkedIn, Fiverr, and Upwork for gig workers.",
-                  type: "B2B/B2C",
-                  image: "/images/blockshack.jpg",
-                  color: "bg-brand-green-light text-brand-green",
-                  link: "https://blockshack.21glabs.in",
-                  shadowColor: "shadow-brand-green/20",
-                },
-              ].map((product, i) => (
-                <div
-                  key={i}
-                  className={`group relative overflow-hidden rounded-lg border bg-white shadow-sm transition-all hover:shadow-lg ${product.shadowColor} duration-300`}
-                >
-                  <div className="aspect-video overflow-hidden">
-                    <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                      {product.image.includes("/images/") ? (
-                        <div className="w-full h-full bg-gray-100 flex items-center justify-center">
-                          <div className={`p-4 rounded-lg ${product.color.split(" ")[0]}`}>
-                            <span className={`text-2xl font-bold ${product.color.split(" ")[1]}`}>{product.title}</span>
-                          </div>
-                        </div>
-                      ) : (
-                        <Image
-                          src={product.image || "/placeholder.svg"}
-                          alt={product.title}
-                          width={600}
-                          height={400}
-                          className="object-cover transition-transform group-hover:scale-105"
-                          unoptimized
-                        />
-                      )}
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <div className={`inline-block rounded-full px-3 py-1 text-xs ${product.color}`}>{product.type}</div>
-                    <h3 className="mt-4 text-xl font-bold">{product.title}</h3>
-                    <p className="mt-2 text-sm text-neutral-600">{product.description}</p>
-                    <Link
-                      href={product.link}
-                      className={`mt-4 inline-flex items-center text-sm font-medium ${product.color.split(" ")[1]} hover:underline`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Learn more
-                      <ArrowRight className="ml-1 h-4 w-4" />
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="mt-12 text-center">
-              <Link href="/experiments">
-                <Button className="bg-brand-blue text-white hover:bg-brand-blue/90 hover:shadow-lg hover:shadow-brand-blue/20 transition-all duration-300">
-                  View Our Experiments
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
+        <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white py-20 md:py-32">
+          <div className="container mx-auto px-4">
+            <div className="mx-auto max-w-4xl text-center">
+              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Our Products</h1>
+              <p className="mt-6 text-lg leading-8 text-gray-600">
+                Innovative solutions designed to solve real-world problems and enhance digital experiences.
+              </p>
             </div>
           </div>
         </section>
-        <section className="w-full bg-brand-blue-light/30 py-12 md:py-24">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Custom Solutions</h2>
-                <p className="mx-auto max-w-[700px] text-neutral-600 md:text-xl">
-                  Need something tailored to your specific requirements? We offer custom development services.
-                </p>
+
+        <section className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="mx-auto max-w-6xl">
+              <div className="grid gap-8 md:grid-cols-2">
+                {products.map((product) => {
+                  const Icon = product.icon
+                  return (
+                    <div
+                      key={product.name}
+                      className="group relative overflow-hidden rounded-lg border bg-white p-8 shadow-sm transition-all hover:shadow-lg"
+                    >
+                      <div className="flex items-start gap-4">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-100">
+                          <Icon className="h-6 w-6 text-gray-600" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 mb-2">
+                            <h3 className="text-xl font-bold text-gray-900">{product.name}</h3>
+                            <span className="inline-flex items-center rounded-full px-2 py-1 text-xs font-medium bg-gray-100 text-gray-800">
+                              {product.status}
+                            </span>
+                          </div>
+                          <p className="text-gray-600 mb-4">{product.description}</p>
+                          <Link href={product.href}>
+                            <Button variant="outline" size="sm">
+                              Learn More
+                              <ArrowRight className="ml-2 h-4 w-4" />
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
-              <div className="mx-auto w-full max-w-sm space-y-2">
-                <Button className="w-full bg-brand-blue text-white hover:bg-brand-blue/90 hover:shadow-lg hover:shadow-brand-blue/20 transition-all duration-300">
-                  Request a Consultation
-                </Button>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-gray-50 py-16">
+          <div className="container mx-auto px-4">
+            <div className="mx-auto max-w-2xl text-center">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                Interested in our products?
+              </h2>
+              <p className="mt-4 text-lg text-gray-600">
+                Get in touch to learn more about our solutions and how they can help your business.
+              </p>
+              <div className="mt-8">
+                <Link href="/contact">
+                  <Button size="lg" className="bg-orange-600 hover:bg-orange-700">
+                    Contact Us
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
         </section>
       </main>
-      <footer className="w-full border-t bg-white py-6 md:py-8">
-        <div className="container flex flex-col items-center justify-between gap-4 md:flex-row">
-          <div className="flex items-center gap-2">
-            <div className="relative h-6 w-6 overflow-hidden rounded-full bg-gradient-to-br from-neutral-200 to-neutral-100 hover:shadow-sm hover:shadow-brand-blue/20 transition-all duration-300">
-              <div className="absolute inset-0 flex items-center justify-center text-xs font-bold text-neutral-800">
-                21
+
+      <footer className="border-t bg-white py-8">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+            <div className="flex items-center gap-2">
+              <div className="relative h-6 w-6 overflow-hidden rounded-full bg-gradient-to-br from-neutral-200 to-neutral-100">
+                <div className="absolute inset-0 flex items-center justify-center text-xs font-bold text-neutral-800">
+                  21
+                </div>
               </div>
+              <span className="text-sm font-medium">21GLabs</span>
             </div>
-            <span className="text-sm font-medium">21GLabs</span>
-          </div>
-          <p className="text-center text-sm text-neutral-500 md:text-left">
-            © 2025 21GLabs. All rights reserved. Incorporated in India.
-          </p>
-          <div className="flex gap-4">
-            <Link href="#" className="text-sm text-neutral-500 hover:underline">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="text-sm text-neutral-500 hover:underline">
-              Terms of Service
-            </Link>
+            <p className="text-center text-sm text-neutral-500 md:text-left">
+              © 2025 21GLabs. All rights reserved. Incorporated in India.
+            </p>
+            <div className="flex gap-4">
+              <Link href="#" className="text-sm text-neutral-500 hover:underline">
+                Privacy Policy
+              </Link>
+              <Link href="#" className="text-sm text-neutral-500 hover:underline">
+                Terms of Service
+              </Link>
+            </div>
           </div>
         </div>
       </footer>
