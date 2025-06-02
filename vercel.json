@@ -1,0 +1,11 @@
+{
+  "rewrites": [
+    { "source": "/philosophy-project", "destination": "/products/philosophy-project" },
+    { "source": "/philosophy-project/(.*)", "destination": "/products/philosophy-project/$1" }
+  ],
+  "redirects": [
+    { "source": "/toolsphere", "destination": "https://utilitytools.21glabs.in", "permanent": true },
+    { "source": "/utilitytools", "destination": "https://utilitytools.21glabs.in", "permanent": true },
+    { "source": "/anuvadasetu", "destination": "https://anuvadasetu.21glabs.in", "permanent": true }
+  ]
+}

@@ -1,10 +1,5 @@
 import Link from "next/link"
-import { Mail, MapPin, Phone } from "lucide-react"
-
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
+import { Mail, Github, Linkedin, Globe } from "lucide-react"
 
 export default function ContactPage() {
   return (
@@ -45,7 +40,7 @@ export default function ContactPage() {
               Get in Touch
             </Link>
           </nav>
-          <Button variant="ghost" size="icon" className="md:hidden">
+          <Link href="#" className="md:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -63,7 +58,7 @@ export default function ContactPage() {
               <line x1="4" x2="20" y1="18" y2="18" />
             </svg>
             <span className="sr-only">Toggle menu</span>
-          </Button>
+          </Link>
         </div>
       </header>
       <main className="flex-1">
@@ -79,84 +74,89 @@ export default function ContactPage() {
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl gap-8 py-12 md:grid-cols-2">
-              <div className="space-y-6">
+            <div className="mx-auto grid max-w-4xl gap-8 py-12">
+              <div className="space-y-8">
                 <div className="space-y-2">
                   <h2 className="text-2xl font-bold">Contact Information</h2>
                   <p className="text-neutral-600">
-                    Feel free to reach out to us through any of the following channels.
+                    Feel free to reach out to the creator of 21GLabs through any of the following channels.
                   </p>
                 </div>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-4">
-                    <MapPin className="h-5 w-5 text-brand-blue" />
-                    <div>
-                      <h3 className="font-medium">Address</h3>
-                      <p className="text-sm text-neutral-600">
-                        21GLabs Headquarters
-                        <br />
-                        Tech Park, Sector 21
-                        <br />
-                        Bangalore, Karnataka 560001
-                        <br />
-                        India
-                      </p>
+
+                <div className="rounded-lg border bg-white p-8 shadow-sm">
+                  <div className="flex flex-col items-center space-y-6">
+                    <div className="h-24 w-24 overflow-hidden rounded-full bg-gradient-to-br from-brand-blue-light to-brand-blue/20">
+                      <div className="flex h-full w-full items-center justify-center text-3xl font-bold text-brand-blue">
+                        KJ
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <Mail className="h-5 w-5 text-brand-orange" />
-                    <div>
-                      <h3 className="font-medium">Email</h3>
-                      <p className="text-sm text-neutral-600">info@21glabs.in</p>
-                      <p className="text-sm text-neutral-600">support@21glabs.in</p>
+                    <div className="text-center">
+                      <h3 className="text-2xl font-bold">Kapil Jain</h3>
+                      <p className="text-neutral-600">Creator & Developer</p>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <Phone className="h-5 w-5 text-brand-green" />
-                    <div>
-                      <h3 className="font-medium">Phone</h3>
-                      <p className="text-sm text-neutral-600">+91 99 9999 9999</p>
-                      <p className="text-sm text-neutral-600">+91 77 7777 7777</p>
+
+                    <div className="grid w-full gap-4 md:grid-cols-2">
+                      <a
+                        href="https://kapiljain.xyz"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 rounded-md border border-neutral-200 bg-white p-4 transition-colors hover:bg-neutral-50"
+                      >
+                        <Globe className="h-5 w-5 text-brand-blue" />
+                        <div>
+                          <h4 className="font-medium">Website</h4>
+                          <p className="text-sm text-neutral-600">kapiljain.xyz</p>
+                        </div>
+                      </a>
+
+                      <a
+                        href="mailto:contact@kapiljain.xyz"
+                        className="flex items-center gap-3 rounded-md border border-neutral-200 bg-white p-4 transition-colors hover:bg-neutral-50"
+                      >
+                        <Mail className="h-5 w-5 text-brand-orange" />
+                        <div>
+                          <h4 className="font-medium">Email</h4>
+                          <p className="text-sm text-neutral-600">contact@kapiljain.xyz</p>
+                        </div>
+                      </a>
+
+                      <a
+                        href="https://github.com/kapshere"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 rounded-md border border-neutral-200 bg-white p-4 transition-colors hover:bg-neutral-50"
+                      >
+                        <Github className="h-5 w-5 text-neutral-800" />
+                        <div>
+                          <h4 className="font-medium">GitHub</h4>
+                          <p className="text-sm text-neutral-600">@kapshere</p>
+                        </div>
+                      </a>
+
+                      <a
+                        href="https://linkedin.com/in/kapiljain"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 rounded-md border border-neutral-200 bg-white p-4 transition-colors hover:bg-neutral-50"
+                      >
+                        <Linkedin className="h-5 w-5 text-[#0077b5]" />
+                        <div>
+                          <h4 className="font-medium">LinkedIn</h4>
+                          <p className="text-sm text-neutral-600">Kapil Jain</p>
+                        </div>
+                      </a>
                     </div>
                   </div>
                 </div>
-                <div className="space-y-2">
+
+                <div className="space-y-2 text-center">
                   <h3 className="text-xl font-bold">Business Hours</h3>
-                  <p className="text-sm text-neutral-600">
-                    Monday - Friday: 9:00 AM - 6:00 PM IST
-                    <br />
-                    Saturday: 10:00 AM - 2:00 PM IST
-                    <br />
-                    Sunday: Closed
-                  </p>
-                </div>
-              </div>
-              <div className="space-y-6">
-                <div className="space-y-2">
-                  <h2 className="text-2xl font-bold">Send Us a Message</h2>
                   <p className="text-neutral-600">
-                    Fill out the form below and we'll get back to you as soon as possible.
+                    Since 21GLabs is a hobby project, responses may vary.
+                    <br />
+                    For faster responses, please reach out via email.
                   </p>
                 </div>
-                <form className="space-y-4">
-                  <div className="grid gap-2">
-                    <Label htmlFor="name">Name</Label>
-                    <Input id="name" placeholder="Your name" />
-                  </div>
-                  <div className="grid gap-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="Your email" />
-                  </div>
-                  <div className="grid gap-2">
-                    <Label htmlFor="subject">Subject</Label>
-                    <Input id="subject" placeholder="Subject of your message" />
-                  </div>
-                  <div className="grid gap-2">
-                    <Label htmlFor="message">Message</Label>
-                    <Textarea id="message" placeholder="Your message" className="min-h-[150px]" />
-                  </div>
-                  <Button className="w-full bg-brand-blue text-white hover:bg-brand-blue/90">Send Message</Button>
-                </form>
               </div>
             </div>
           </div>

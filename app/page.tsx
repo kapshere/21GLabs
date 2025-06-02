@@ -125,34 +125,36 @@ export default function Home() {
             </div>
             <div className="mx-auto grid max-w-5xl gap-8 pt-12 md:grid-cols-2 lg:grid-cols-5">
               <div className="group relative overflow-hidden rounded-lg border bg-white shadow-sm transition-all hover:shadow-lg hover:shadow-brand-blue/20 duration-300">
-                <div className="p-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-blue-light">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-6 w-6 text-brand-blue"
-                    >
-                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                      <circle cx="9" cy="7" r="4"></circle>
-                      <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                    </svg>
+                <div className="p-6 flex flex-col items-center text-center">
+                  <div className="relative h-20 w-20 overflow-hidden rounded-full bg-gradient-to-br from-brand-blue-light to-brand-blue/20 hover:shadow-lg hover:shadow-brand-blue/20 transition-all duration-300 mb-4">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="h-8 w-8 text-brand-blue"
+                      >
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                      </svg>
+                    </div>
                   </div>
-                  <h3 className="mt-4 text-xl font-bold">Connect</h3>
-                  <p className="mt-2 text-sm text-neutral-600">
+                  <h3 className="text-xl font-bold mb-2">Connect</h3>
+                  <p className="text-sm text-neutral-600 mb-4">
                     Real People. Real Connections. Connect with others through authentic commitments, celebrations, and
                     memories. No fake profiles, just real interaction.
                   </p>
                   <Link
                     href="https://connect.21glabs.in"
-                    className="mt-4 inline-flex items-center text-sm font-medium text-brand-blue hover:underline"
+                    className="inline-flex items-center text-sm font-medium text-brand-blue hover:underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -162,31 +164,33 @@ export default function Home() {
                 </div>
               </div>
               <div className="group relative overflow-hidden rounded-lg border bg-white shadow-sm transition-all hover:shadow-lg hover:shadow-brand-orange/20 duration-300">
-                <div className="p-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-orange-light">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-6 w-6 text-brand-orange"
-                    >
-                      <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
-                    </svg>
+                <div className="p-6 flex flex-col items-center text-center">
+                  <div className="relative h-20 w-20 overflow-hidden rounded-full bg-gradient-to-br from-brand-orange-light to-brand-orange/20 hover:shadow-lg hover:shadow-brand-orange/20 transition-all duration-300 mb-4">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="h-8 w-8 text-brand-orange"
+                      >
+                        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+                      </svg>
+                    </div>
                   </div>
-                  <h3 className="mt-4 text-xl font-bold">Anuvādasetu</h3>
-                  <p className="mt-2 text-sm text-neutral-600">
+                  <h3 className="text-xl font-bold mb-2">Anuvādasetu</h3>
+                  <p className="text-sm text-neutral-600 mb-4">
                     Translate your English books to native Indian languages and expand your reach. Break language
                     barriers and connect with a wider audience.
                   </p>
                   <Link
                     href="https://anuvadasetu.21glabs.in"
-                    className="mt-4 inline-flex items-center text-sm font-medium text-brand-orange hover:underline"
+                    className="inline-flex items-center text-sm font-medium text-brand-orange hover:underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -196,32 +200,34 @@ export default function Home() {
                 </div>
               </div>
               <div className="group relative overflow-hidden rounded-lg border bg-white shadow-sm transition-all hover:shadow-lg hover:shadow-brand-green/20 duration-300">
-                <div className="p-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-green-light">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-6 w-6 text-brand-green"
-                    >
-                      <rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect>
-                      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                    </svg>
+                <div className="p-6 flex flex-col items-center text-center">
+                  <div className="relative h-20 w-20 overflow-hidden rounded-full bg-gradient-to-br from-brand-green-light to-brand-green/20 hover:shadow-lg hover:shadow-brand-green/20 transition-all duration-300 mb-4">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="h-8 w-8 text-brand-green"
+                      >
+                        <rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                      </svg>
+                    </div>
                   </div>
-                  <h3 className="mt-4 text-xl font-bold">Blockshack</h3>
-                  <p className="mt-2 text-sm text-neutral-600">
+                  <h3 className="text-xl font-bold mb-2">Blockshack</h3>
+                  <p className="text-sm text-neutral-600 mb-4">
                     A new age LinkedIn where every individual is a business entrepreneur and runs their own shop or
                     shack. Replacing LinkedIn, Fiverr, and Upwork for gig workers.
                   </p>
                   <Link
                     href="https://blockshack.21glabs.in"
-                    className="mt-4 inline-flex items-center text-sm font-medium text-brand-green hover:underline"
+                    className="inline-flex items-center text-sm font-medium text-brand-green hover:underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -231,32 +237,34 @@ export default function Home() {
                 </div>
               </div>
               <div className="group relative overflow-hidden rounded-lg border bg-white shadow-sm transition-all hover:shadow-lg hover:shadow-brand-blue/20 duration-300">
-                <div className="p-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-blue-light">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-6 w-6 text-brand-blue"
-                    >
-                      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-                      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-                    </svg>
+                <div className="p-6 flex flex-col items-center text-center">
+                  <div className="relative h-20 w-20 overflow-hidden rounded-full bg-gradient-to-br from-brand-blue-light to-brand-blue/20 hover:shadow-lg hover:shadow-brand-blue/20 transition-all duration-300 mb-4">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="h-8 w-8 text-brand-blue"
+                      >
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                      </svg>
+                    </div>
                   </div>
-                  <h3 className="mt-4 text-xl font-bold">The Philosophy Project</h3>
-                  <p className="mt-2 text-sm text-neutral-600">
+                  <h3 className="text-xl font-bold mb-2">The Philosophy Project</h3>
+                  <p className="text-sm text-neutral-600 mb-4">
                     Publishing ancient Bharatiya philosophies in modern formats. Access timeless wisdom through
                     podcasts, videos, and books designed for all generations.
                   </p>
                   <Link
                     href="https://philosophy.21glabs.in"
-                    className="mt-4 inline-flex items-center text-sm font-medium text-brand-blue hover:underline"
+                    className="inline-flex items-center text-sm font-medium text-brand-blue hover:underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -266,31 +274,33 @@ export default function Home() {
                 </div>
               </div>
               <div className="group relative overflow-hidden rounded-lg border bg-white shadow-sm transition-all hover:shadow-lg hover:shadow-brand-orange/20 duration-300">
-                <div className="p-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-orange-light">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-6 w-6 text-brand-orange"
-                    >
-                      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-                    </svg>
+                <div className="p-6 flex flex-col items-center text-center">
+                  <div className="relative h-20 w-20 overflow-hidden rounded-full bg-gradient-to-br from-brand-orange-light to-brand-orange/20 hover:shadow-lg hover:shadow-brand-orange/20 transition-all duration-300 mb-4">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="h-8 w-8 text-brand-orange"
+                      >
+                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                      </svg>
+                    </div>
                   </div>
-                  <h3 className="mt-4 text-xl font-bold">ToolSphere</h3>
-                  <p className="mt-2 text-sm text-neutral-600">
-                    A comprehensive collection of web-based tools for developers, designers, and content creators. All
-                    the utilities you need in one convenient location.
+                  <h3 className="text-xl font-bold mb-2">UtilityTools</h3>
+                  <p className="text-sm text-neutral-600 mb-4">
+                    A comprehensive collection of 50+ essential web tools for developers, designers, and content
+                    creators. All the utilities you need in one convenient location.
                   </p>
                   <Link
-                    href="https://toolsphere.21glabs.in"
-                    className="mt-4 inline-flex items-center text-sm font-medium text-brand-orange hover:underline"
+                    href="https://utilitytools.21glabs.in"
+                    className="inline-flex items-center text-sm font-medium text-brand-orange hover:underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

@@ -82,12 +82,19 @@ export default function AboutPage() {
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">From Vision to Reality</h2>
                 <p className="text-neutral-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Founded with a vision to transform how businesses and consumers interact with technology, 21GLabs has
-                  grown from a small team of innovators to a leading technology company in India.
+                  21GLabs means 21st century Garage for Kapil Jain, who runs this garage as a hobby project hosting
+                  various technology tools and utilities to showcase his skills.
                 </p>
                 <p className="text-neutral-600">
-                  Our journey began with a simple idea: to create technology that makes a difference. Today, we're proud
+                  The journey began with a simple idea: to create technology that makes a difference. Today, we're proud
                   to offer a diverse range of products that solve real-world problems and enhance everyday experiences.
+                </p>
+                <p className="text-neutral-600">
+                  Visit{" "}
+                  <a href="https://kapiljain.xyz" className="text-brand-blue hover:underline">
+                    kapiljain.xyz
+                  </a>{" "}
+                  to learn more about the creator behind 21GLabs.
                 </p>
               </div>
               <div className="flex justify-center">
@@ -115,7 +122,7 @@ export default function AboutPage() {
                   user-friendly, and designed with purpose.
                 </p>
               </div>
-              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-8 md:grid-cols-2">
                 <div className="space-y-4">
                   <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-brand-blue-light">
                     <svg
@@ -136,34 +143,8 @@ export default function AboutPage() {
                   </div>
                   <h3 className="text-xl font-bold">Research & Development</h3>
                   <p className="text-neutral-600">
-                    We invest heavily in R&D to stay at the forefront of technological advancements and bring
-                    cutting-edge solutions to market.
-                  </p>
-                </div>
-                <div className="space-y-4">
-                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-brand-orange-light">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-6 w-6 text-brand-orange"
-                    >
-                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                      <circle cx="9" cy="7" r="4" />
-                      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-bold">Our Team</h3>
-                  <p className="text-neutral-600">
-                    Our diverse team of experts brings together knowledge from various fields to create holistic
-                    solutions that address complex challenges.
+                    We invest in R&D to stay at the forefront of technological advancements and bring cutting-edge
+                    solutions to market that address real-world needs.
                   </p>
                 </div>
                 <div className="space-y-4">
@@ -185,27 +166,9 @@ export default function AboutPage() {
                   </div>
                   <h3 className="text-xl font-bold">Our Values</h3>
                   <p className="text-neutral-600">
-                    Integrity, innovation, and customer satisfaction are at the core of everything we do at 21GLabs.
+                    Integrity, innovation, and user satisfaction are at the core of everything we do at 21GLabs.
                   </p>
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className="w-full bg-brand-blue-light/30 py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Join Our Journey</h2>
-                <p className="mx-auto max-w-[700px] text-neutral-600 md:text-xl">
-                  We're always looking for talented individuals to join our team and help us shape the future of
-                  technology.
-                </p>
-              </div>
-              <div className="mx-auto w-full max-w-sm space-y-2">
-                <Button className="w-full bg-brand-blue text-white hover:bg-brand-blue/90">
-                  View Career Opportunities
-                </Button>
               </div>
             </div>
           </div>

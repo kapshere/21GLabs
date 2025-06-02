@@ -31,19 +31,30 @@ export function getAllBlogPosts(): BlogPost[] {
     const filenames = fs.readdirSync(contentDirectory)
 
     const posts = filenames
-      .filter((filename) => filename.endsWith(".md"))
+      .filter((filename) => {
+        // Only process .md files and ensure they're not directories
+        const fullPath = path.join(contentDirectory, filename)
+        return filename.endsWith(".md") && fs.statSync(fullPath).isFile()
+      })
       .map((filename) => {
         const slug = filename.replace(/\.md$/, "")
         const filePath = path.join(contentDirectory, filename)
-        const fileContents = fs.readFileSync(filePath, "utf8")
-        const { data, content } = matter(fileContents)
 
-        return {
-          slug,
-          frontmatter: data,
-          content,
-        } as BlogPost
+        try {
+          const fileContents = fs.readFileSync(filePath, "utf8")
+          const { data, content } = matter(fileContents)
+
+          return {
+            slug,
+            frontmatter: data,
+            content,
+          } as BlogPost
+        } catch (error) {
+          console.error(`Error reading blog post ${filename}:`, error)
+          return null
+        }
       })
+      .filter((post): post is BlogPost => post !== null)
 
     // Sort posts by date (newest first)
     return posts.sort((a, b) => {
@@ -63,9 +74,15 @@ export function getBlogPostBySlug(slug: string): BlogPost | null {
     const contentDirectory = path.join(process.cwd(), "app", "blog", "content")
     const filePath = path.join(contentDirectory, `${slug}.md`)
 
-    // Check if file exists
+    // Check if file exists and is actually a file (not a directory)
     if (!fs.existsSync(filePath)) {
-      console.error(`Blog post not found: ${filePath}`)
+      console.error(`Blog post file not found: ${filePath}`)
+      return null
+    }
+
+    const stats = fs.statSync(filePath)
+    if (!stats.isFile()) {
+      console.error(`Path is not a file: ${filePath}`)
       return null
     }
 
